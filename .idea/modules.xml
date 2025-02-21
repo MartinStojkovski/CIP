@@ -8,6 +8,11 @@
       <module fileurl="file://$PROJECT_DIR$/Week3/Week3.iml" filepath="$PROJECT_DIR$/Week3/Week3.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week4/Week4.iml" filepath="$PROJECT_DIR$/Week4/Week4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week5/Week5.iml" filepath="$PROJECT_DIR$/Week5/Week5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/exc3.1/exc3.1.iml" filepath="$PROJECT_DIR$/Week3/exc3.1/exc3.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/exc3.2/exc3.2.iml" filepath="$PROJECT_DIR$/Week3/exc3.2/exc3.2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/exc3.3/exc3.3.iml" filepath="$PROJECT_DIR$/Week3/exc3.3/exc3.3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/exc3.4/exc3.4.iml" filepath="$PROJECT_DIR$/Week3/exc3.4/exc3.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Week3/exc3.5/exc3.5.iml" filepath="$PROJECT_DIR$/Week3/exc3.5/exc3.5.iml" />
     </modules>
   </component>
 </project>
