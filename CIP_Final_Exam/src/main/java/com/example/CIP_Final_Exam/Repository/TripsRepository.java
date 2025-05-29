@@ -1,0 +1,19 @@
+package com.example.CIP_Final_Exam.Repository;
+import com.example.CIP_Final_Exam.Entity.Trips;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.example.CIP_Final_Exam.Entity.Routes;
+import com.example.CIP_Final_Exam.Entity.Stops;
+
+import java.time.LocalDate;
+import java.util.*;
+
+@Repository
+public interface TripsRepository extends JpaRepository<Trips, Long> {
+
+    List<Trips> findByRouteAndDepartureTime(Routes route, LocalDate departureTime);
+
+    List<Trips> findByStopsWithinDepartureTime(List<Stops> stops, LocalDate departureTime);
+
+
+}

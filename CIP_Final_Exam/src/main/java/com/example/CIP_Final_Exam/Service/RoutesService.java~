@@ -1,0 +1,50 @@
+package com.example.CIP_Final_Exam.Service;
+
+import com.example.CIP_Final_Exam.Entity.Routes;
+import com.example.CIP_Final_Exam.Repository.RoutesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class RoutesService {
+
+    @Autowired
+    private RoutesRepository routesRepository;
+
+    // CREATE
+    public Routes createRoutes(Routes routes) {
+        return routesRepository.save(routes);
+    }
+
+    // READ all routes
+    public List<Routes> getAllRoutes() {
+        return routesRepository.findAll();
+    }
+
+    // READ route by ID
+    public Optional<Routes> getRoutesById(Long id) {
+        return routesRepository.findById(id);
+    }
+
+    // UPDATE route by ID
+    public Optional<Routes> updateRoutes(Long id, Routes routes) {
+        return routesRepository.findById(id).map(existingRoutes -> {
+            existingRoutes.setNumber(routes.getNumber());
+            existingRoutes.setOriginStop(routes.getOriginStop());
+            existingRoutes.setDestinationStop(routes.getDestinationStop());
+            return routesRepository.save(existingRoutes);
+        });
+    }
+
+    // DELETE route by ID
+    public boolean deleteRoutes(Long id) {
+        if (routesRepository.existsById(id)) {
+            routesRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
+}

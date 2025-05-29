@@ -1,0 +1,48 @@
+package com.example.CIP_Final_Exam.Service;
+import com.example.CIP_Final_Exam.Entity.Stops;
+import com.example.CIP_Final_Exam.Repository.StopsRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import java.util.*;
+
+@Service
+public class StopsService {
+    @Autowired
+    private StopsRepository stopsRepository;
+
+    //CREATE
+    public Stops createStops(Stops stops) {
+        return stopsRepository.save(stops);
+    }
+
+    //READ
+    public List<Stops> getAllStops() {
+        return stopsRepository.findAll();
+    }
+
+    //READ BY ID
+    public Optional<Stops> getStopsById(Long id) {
+        return stopsRepository.findById(id);
+    }
+
+    //UPDATE BY ID
+    public Optional<Stops> updateStops(Long id, Stops stops) {
+        Optional<Stops> stopsToUpdate = stopsRepository.findById(id);
+        if (stopsToUpdate.isPresent()) {
+            Stops existingStops = stopsToUpdate.get();
+            existingStops.setCode(stops.getCode());
+            existingStops.setName(stops.getName());
+            existingStops.setLatitude(stops.getLatitude());
+            existingStops.setLongitude(stops.getLongitude());
+            return Optional.of(stopsRepository.save(existingStops));
+        } else {
+            return Optional.empty();
+        }
+    }
+
+    //DELETE BY ID
+    public void deleteStops(Long id) {
+        stopsRepository.deleteById(id);
+    }
+}

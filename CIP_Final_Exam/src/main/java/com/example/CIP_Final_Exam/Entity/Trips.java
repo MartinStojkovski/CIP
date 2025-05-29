@@ -1,0 +1,67 @@
+package com.example.CIP_Final_Exam.Entity;
+import jakarta.persistence.*;
+import java.util.*;
+import com.example.CIP_Final_Exam.Entity.Routes;
+import org.springframework.cglib.core.Local;
+import java.time.LocalDate;
+@Entity
+public class Trips {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    private Long id;
+
+
+    private LocalDate departureTime;
+    private LocalDate arrivalTime;
+    private int busNumber;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="route_id")
+    private Routes routes;
+
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="stop_id")
+    private Stops stops;
+
+
+    public Trips(){}
+
+    public Trips(LocalDate departureTime, LocalDate arrivalTime, int busNumber) {
+        this.departureTime=departureTime;
+        this.arrivalTime=arrivalTime;
+        this.busNumber=busNumber;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id){
+        this.id=id;
+    }
+
+    public LocalDate getDepartureTime(){
+        return departureTime;
+    }
+
+    public void setDepartureTime(LocalDate departureTime){
+        this.departureTime=departureTime;
+    }
+
+    public LocalDate getArrivalTime(){
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(LocalDate arrivalTime){
+        this.arrivalTime=arrivalTime;
+    }
+
+    public int getBusNumber(){
+        return busNumber;
+    }
+
+    public void setBusNumber(int busNumber){
+        this.busNumber=busNumber;
+    }
+}
